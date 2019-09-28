@@ -31,6 +31,7 @@ class App extends Component {
     );
     return (
       <Fragment>
+        <h1 className="apptitle">Find your monster</h1>
         <Search
           placeholder="Search monsters..."
           handleChange={this.handleChange}
