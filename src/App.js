@@ -1,12 +1,14 @@
-import React, { Component } from "react";
+import React, { Fragment, Component } from "react";
 import CardList from "./components/CardList/CardList";
+import Search from "./components/Search/Search";
 import "./App.scss";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: []
+      monsters: [],
+      search: ""
     };
   }
 
@@ -18,8 +20,24 @@ class App extends Component {
       .then(data => this.setState({ monsters: data }));
   }
 
+  handleChange = e => {
+    this.setState({ search: e.target.value });
+  };
+
   render() {
-    return <CardList monsters={this.state.monsters} />;
+    const { monsters, search } = this.state;
+    const searchResults = monsters.filter(monster =>
+      monster.name.toLowerCase().includes(search.toLowerCase())
+    );
+    return (
+      <Fragment>
+        <Search
+          placeholder="Search monsters..."
+          handleChange={this.handleChange}
+        />
+        <CardList monsters={searchResults} />
+      </Fragment>
+    );
   }
 }
 

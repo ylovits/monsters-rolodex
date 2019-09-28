@@ -12,7 +12,7 @@ const Card = ({ monster, ind }) => {
           />
         </div>
         <div className="card-content__name">{monster.name}</div>
-        <div className="card-content__email">{monster.name}</div>
+        <div className="card-content__email">{monster.website}</div>
       </div>
     </div>
   );
