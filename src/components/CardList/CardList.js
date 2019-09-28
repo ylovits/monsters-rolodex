@@ -5,9 +5,9 @@ import "./CardList.scss";
 const CardList = props => {
   return (
     <div className="App">
-      <div className="monsterlist">
+      <div className="cardlist">
         {props.monsters.map((monster, ind) => (
-          <Card monster={monster} key={ind} />
+          <Card monster={monster} key={ind} ind={ind} />
         ))}
       </div>
     </div>

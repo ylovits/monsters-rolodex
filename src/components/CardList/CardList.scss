@@ -1,76 +1,8 @@
-@mixin random-color() {
-  color: rgb(random(255), random(255), random(255));
-}
-
-$border-radius-size: 14px;
-
-.monsterlist {
+.cardlist {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: center;
-}
-
-.monster {
-  display: flex;
-  padding: 1rem;
-
-  cursor: pointer;
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform 0.25s ease-out;
-
-  &:focus {
-    outline: 0;
-  }
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  $num-colors: 100;
-  @for $i from 0 to $num-colors {
-    &:nth-child(#{$i}) .monster-card__email {
-      @include random-color();
-    }
-  }
-
-  .monster-card {
-    background: white;
-    display: inline-block;
-    margin: auto;
-    border-radius: $border-radius-size + 5;
-    position: relative;
-    text-align: center;
-    box-shadow: -1px 15px 30px -12px black;
-    z-index: 9999;
-    padding-bottom: 1rem;
-
-    .monster-card__image {
-      position: relative;
-      margin-bottom: 1rem;
-      img {
-        width: 100%;
-        height: auto;
-        border-top-left-radius: $border-radius-size;
-        border-top-right-radius: $border-radius-size;
-      }
-    }
-
-    .monster-card__email {
-      text-transform: uppercase;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 3px;
-    }
-
-    .monster-card__name {
-      font-size: 1rem;
-      color: black;
-      font-weight: 900;
-      margin-bottom: 5px;
-    }
-  }
 }
